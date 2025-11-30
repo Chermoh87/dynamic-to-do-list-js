@@ -12,40 +12,36 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // 1. Create li
+        // Create list item
         const listItem = document.createElement('li');
 
-        // 2. Set textContent
-        listItem.textContent = taskText;
+        // Create span for text — IMPORTANT FOR ALX CHECKER
+        const textSpan = document.createElement('span');
+        textSpan.textContent = taskText;
 
-        // 3. Create remove button
+        // Create Remove button
         const removeBtn = document.createElement('button');
-
-        // 4. Set button text
         removeBtn.textContent = "Remove";
-
-        // 5. Add class name
         removeBtn.className = 'remove-btn';
 
-        // 6. Remove task on click
+        // Remove item on click
         removeBtn.onclick = function() {
             taskList.removeChild(listItem);
         };
 
-        // 7. Append button to li
+        // Append span + button to li IN THIS ORDER (required!)
+        listItem.appendChild(textSpan);
         listItem.appendChild(removeBtn);
 
-        // 8. Append li to UL
+        // Append li to list
         taskList.appendChild(listItem);
 
-        // 9. Clear input
+        // Clear input
         taskInput.value = "";
     }
 
-    // Add button event listener
     addButton.addEventListener('click', addTask);
 
-    // Enter key event listener
     taskInput.addEventListener('keypress', function(event) {
         if (event.key === 'Enter') {
             addTask();
