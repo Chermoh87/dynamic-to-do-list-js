@@ -47,6 +47,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Run once on page load
-    addTask();
 });
